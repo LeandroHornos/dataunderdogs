@@ -26,28 +26,21 @@ const Nav = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a className="navbar-brand" href="/">
-            <Image
-              src={logo}
-              alt=""
-              width={24}
-              height={24}
-              className="d-inline-block align-text-top"
-            ></Image>
-            Brand
+          <a className="navbar-brand" href="/" style={{color: "rgb(255, 136,0)"}}>
+            Data Underdogs
           </a>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link href="/dashboard">
                 <a className="nav-link active" aria-current="page">
-                  Dashboard
+                  Home
                 </a>
               </Link>
             </li>
             <li className="nav-item">
               <Link href="/todo">
                 <a className="nav-link active" aria-current="page">
-                  ToDos
+                  Posts
                 </a>
               </Link>
             </li>

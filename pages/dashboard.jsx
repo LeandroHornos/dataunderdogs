@@ -5,13 +5,16 @@ import { getSession, signOut } from "next-auth/client";
 
 import Link from "next/link";
 
+import EntriesList from "../components/EntriesList";
+
 import { GeneralLayout, CenteredColRow } from "../components/Layout";
 export default function Dashboard() {
   return (
     <GeneralLayout>
       <CenteredColRow centerColSize={8} breakpoint="md">
         <div className="min80 d-flex flex-column justify-content-between align-items-center">
-          <h1 className="text-center">Dashboard</h1>
+          <h1 className="text-center">Últimas entradas</h1>
+          <EntriesList entries={[]} />
           <Link href="/protected">Ver página protegida</Link>
         </div>
       </CenteredColRow>

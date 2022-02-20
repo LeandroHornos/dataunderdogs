@@ -67,6 +67,12 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
+/* NAV */
+.navbar-brand {
+  color: rgb(255, 136, 0)
+}
+
+
 /* MODAL WINDOW*/
 .modal {
   position: fixed;
