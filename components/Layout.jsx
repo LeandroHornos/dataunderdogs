@@ -97,10 +97,10 @@ export const GeneralLayout = (props) => {
           integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
           crossorigin="anonymous"
         ></script>
-        <title>NextJs Base App</title>
+        <title>Data Underdogs</title>
         <meta
           name="description"
-          content="Aplicacion de NextJS base para ser usada en proyectos diversos. Aporta maneo de sesiones via oauth con nextauth y provee una base de datos sencilla en sqlite"
+          content="Data underdogs is a website for beginners in data science"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -141,7 +141,7 @@ export const BlankLayout = (props) => {
           integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
           crossorigin="anonymous"
         ></script>
-        <title>NextJs Base App</title>
+        <title>Data Underdogs</title>
         <meta
           name="description"
           content="Aplicacion de NextJS base para ser usada en proyectos diversos. Aporta maneo de sesiones via oauth con nextauth y provee una base de datos sencilla en sqlite"
