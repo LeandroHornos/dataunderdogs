@@ -1,15 +1,18 @@
 // NextJS
 
 // Next Auth
-import { getSession, signOut } from "next-auth/client";
+import { getSession} from "next-auth/client";
 
+// Next
 import Link from "next/link";
 
+// Components
+import { GeneralLayout, CenteredColRow } from "../components/Layout";
 import EntriesList from "../components/EntriesList";
 
+// Sample Data
 const sample_data = require("../sampledb/user-posts.json");
 
-import { GeneralLayout, CenteredColRow } from "../components/Layout";
 
 export default function Dashboard() {
   return (

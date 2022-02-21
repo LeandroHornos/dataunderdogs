@@ -41,40 +41,37 @@ const newEntry = () => {
   } else {
     return (
       <GeneralLayout>
-        <div className="row">
-          <div className="col-md-3 bg-dark"></div>
-          <div className="col-md-9">
-            {" "}
-            <div className="min80 pt-5">
-              <h1>Nueva publicación</h1>
-              <form action="">
-                <div className="form-group mt-3">
-                  <label htmlFor="title">Título:</label>
-                  <input
-                    type="text"
-                    name="title"
-                    id="1"
-                    className="form-control"
-                  />
-                </div>
-                <div className="form-group mt-3">
-                  <label htmlFor="title">Pitch:</label>
-                  <textarea className="form-control"></textarea>
-                </div>
-                <div className="mt-3">
-                  <MDEditor value={value} onChange={setValue} />
-                </div>
-                <div className="form-group">
-                  <input
-                    className="btn btn-info mt-3"
-                    type="submit"
-                    value="Enviar"
-                  />
-                </div>
-              </form>
-            </div>
+        <CenteredColRow centerColSize="10" breakpoint="md">
+          {" "}
+          <div className="min80 pt-5">
+            <h1>Nueva publicación</h1>
+            <form action="">
+              <div className="form-group mt-3">
+                <label htmlFor="title">Título:</label>
+                <input
+                  type="text"
+                  name="title"
+                  id="1"
+                  className="form-control"
+                />
+              </div>
+              <div className="form-group mt-3">
+                <label htmlFor="title">Pitch:</label>
+                <textarea className="form-control"></textarea>
+              </div>
+              <div className="mt-3">
+                <MDEditor value={value} onChange={setValue} />
+              </div>
+              <div className="form-group">
+                <input
+                  className="btn btn-info mt-3"
+                  type="submit"
+                  value="Enviar"
+                />
+              </div>
+            </form>
           </div>
-        </div>
+        </CenteredColRow>
       </GeneralLayout>
     );
   }
