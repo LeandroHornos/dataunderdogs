@@ -108,7 +108,7 @@ export const GeneralLayout = (props) => {
       <div className="cointainer min100">
         {children}
         <footer>
-          <div className="row min20">
+          <div className="row min20 bg-dark">
             <div className="col-12 d-flex flex-column justify-content-center align-items-center">
               <a
                 href="https://www.leandrohornos.com"

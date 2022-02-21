@@ -22,7 +22,7 @@ body {
 
 .row {
   margin: 0;
-  padding: 10px 0px;
+  padding: 0px 0px;
 }
 
 .btn {
@@ -49,6 +49,10 @@ body {
   background-color: white;
 }
 
+.bg-softdark {
+  background-color: rgb(74, 77, 78);
+}
+
 .width100 {
   width: 100%;
 }
@@ -69,9 +73,8 @@ body {
 
 /* NAV */
 .navbar-brand {
-  color: rgb(255, 136, 0)
+  color: rgb(255, 136, 0);
 }
-
 
 /* MODAL WINDOW*/
 .modal {
@@ -99,4 +102,8 @@ body {
 
 .display-none {
   display: none;
+}
+
+.card {
+  margin-bottom: 20px;
 }
