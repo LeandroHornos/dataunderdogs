@@ -26,7 +26,11 @@ const Nav = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a className="navbar-brand" href="/" style={{color: "rgb(255, 136,0)"}}>
+          <a
+            className="navbar-brand"
+            href="/"
+            style={{ color: "rgb(255, 136,0)" }}
+          >
             Data Underdogs
           </a>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -38,9 +42,16 @@ const Nav = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/todo">
+              <Link href="/post">
                 <a className="nav-link active" aria-current="page">
-                  Posts
+                  Post
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/new-entry">
+                <a className="nav-link active" aria-current="page">
+                  Nuevo post
                 </a>
               </Link>
             </li>
