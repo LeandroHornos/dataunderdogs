@@ -7,7 +7,7 @@ del template antes de comenzar un proyecto.
 */
 
 import connectDB from "../../../config/connectDB";
-import Posts from "../../../models/postModel";
+import Post from "../../../models/postModel";
 
 import { getSession } from "next-auth/client";
 
@@ -26,7 +26,8 @@ export async function createPost(req, res) {
   // console.log("createPost saluda!");
   // console.log(req.body);
   // console.log(req.method);
-  // Crea una nueva tarea en la base de datos
+
+  // Saves a new post to the database
   try {
     const session = await getSession({ req });
 
@@ -45,14 +46,14 @@ export async function createPost(req, res) {
       });
     }
 
-    const newPost = new Todos({
-      name: post.toLowerCase(),
-      user: userId,
+    const newPost = new Post({
+      ...post,
+      user_id: userId,
     });
 
     await newPost.save();
     res.json({
-      msg: "Felicitaciones, la tarea se ha creado con exito",
+      msg: "Felicitaciones, el posteo se ha creado con exito",
     });
   } catch (err) {
     console.log("oops, ocurrió un error");

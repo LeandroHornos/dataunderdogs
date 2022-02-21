@@ -15,6 +15,20 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    category: {
+        type: String,
+        required: true,
+      },
+    creation_date: {
+      type: Date,
+      default: Date.now,
+      required: true,
+    },
+    last_edit: {
+      type: Date,
+      default: Date.now,
+      required: true,
+    },
     user_id: {
       type: mongoose.Types.ObjectId,
       ref: "users",
@@ -24,6 +38,6 @@ const postSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-let Posts = mongoose.models.post || mongoose.model("post", postSchema);
+let Post = mongoose.models.post || mongoose.model("post", postSchema);
 
 export default Todos;
