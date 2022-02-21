@@ -18,10 +18,35 @@ const MDEditor = dynamic(
   { ssr: false }
 );
 
+// AXIOS
+import axios from "axios";
+
+// REACT TOASTIFY
+import { toast } from "react-toastify";
+
 const newEntry = () => {
   const [session, loading] = useSession();
   const [value, setValue] = useState("**Hello world!!!**");
   // Si no se inició se sesión se muestra un mensaje de error
+
+  const onSubmit = async (data, e) => {
+    console.log(data);
+    try {
+      console.log("Salvando...");
+      const res = await axios.post("/api/post", { todo: data.name });
+      toast.success(res.data.msg);
+      reset("", {
+        keepValues: false,
+      });
+      return;
+    } catch (err) {
+      toast.error(err.response.data.msg);
+      reset("", {
+        keepValues: false,
+      });
+    }
+  };
+
   if (typeof window !== "undefinded" && loading) {
     return null;
   }
