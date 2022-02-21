@@ -26,27 +26,32 @@ import { toast } from "react-toastify";
 
 const newEntry = () => {
   const [session, loading] = useSession();
-  const [value, setValue] = useState("**Hello world!!!**");
-  // Si no se inició se sesión se muestra un mensaje de error
+  const [content, setContent] = useState("**Hello world!!!**");
+  const [pitch, setPitch] = useState("");
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("idea");
 
-  const onSubmit = async (data, e) => {
+  const cleanForm = () => {
+    setContent("");
+    setPitch("");
+    setTitle("");
+  };
+
+  const onSubmit = async () => {
+    const data = { pitch, title, content, category };
     console.log(data);
     try {
       console.log("Salvando...");
-      const res = await axios.post("/api/post", { todo: data.name });
+      const res = await axios.post("/api/post", { post: data });
       toast.success(res.data.msg);
-      reset("", {
-        keepValues: false,
-      });
+      cleanForm();
       return;
     } catch (err) {
       toast.error(err.response.data.msg);
-      reset("", {
-        keepValues: false,
-      });
     }
   };
 
+  // Si no se inició se sesión se muestra un mensaje de error
   if (typeof window !== "undefinded" && loading) {
     return null;
   }
@@ -70,31 +75,63 @@ const newEntry = () => {
           {" "}
           <div className="min80 pt-5">
             <h1>Nueva publicación</h1>
-            <form action="">
-              <div className="form-group mt-3">
-                <label htmlFor="title">Título:</label>
-                <input
-                  type="text"
-                  name="title"
-                  id="1"
-                  className="form-control"
-                />
-              </div>
-              <div className="form-group mt-3">
-                <label htmlFor="title">Pitch:</label>
-                <textarea className="form-control"></textarea>
-              </div>
-              <div className="mt-3">
-                <MDEditor value={value} onChange={setValue} />
-              </div>
-              <div className="form-group">
-                <input
-                  className="btn btn-info mt-3"
-                  type="submit"
-                  value="Enviar"
-                />
-              </div>
-            </form>
+            <div className="form-group mt-3">
+              <label htmlFor="category">Categoria:</label>
+              <select
+                className="form-control"
+                name="category"
+                id="category"
+                value={category}
+                onChange={(e) => {
+                  setCategory(e.target.value);
+                }}
+              >
+                <option value="idea">Idea</option>
+                <option value="real-project">Proyecto real</option>
+                <option value="resource">Recurso</option>
+                <option value="debate">Discusión</option>
+                <option value="education">Educación</option>
+                <option value="general">General</option>
+              </select>
+            </div>
+            <div className="form-group mt-3">
+              <label htmlFor="title">Título:</label>
+              <input
+                type="text"
+                name="title"
+                value={title}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+                id="title"
+                className="form-control"
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label htmlFor="pitch">Pitch:</label>
+              <textarea
+                name="pitch"
+                id="pitch"
+                className="form-control"
+                value={pitch}
+                onChange={(e) => {
+                  setPitch(e.target.value);
+                }}
+              ></textarea>
+            </div>
+            <div className="mt-3">
+              <MDEditor value={content} onChange={setContent} />
+            </div>
+            <div className="form-group">
+              <button
+                className="btn btn-info"
+                onClick={() => {
+                  onSubmit();
+                }}
+              >
+                Enviar
+              </button>
+            </div>
           </div>
         </CenteredColRow>
       </GeneralLayout>

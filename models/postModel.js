@@ -16,9 +16,9 @@ const postSchema = new mongoose.Schema(
       required: true,
     },
     category: {
-        type: String,
-        required: true,
-      },
+      type: String,
+      required: true,
+    },
     creation_date: {
       type: Date,
       default: Date.now,
@@ -40,4 +40,4 @@ const postSchema = new mongoose.Schema(
 
 let Post = mongoose.models.post || mongoose.model("post", postSchema);
 
-export default Todos;
+export default Post;
