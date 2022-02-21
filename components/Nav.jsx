@@ -3,9 +3,6 @@ import React from "react";
 import Link from "next/link";
 
 import { useSession } from "next-auth/client";
-import Image from "next/image";
-
-import logo from "../images/rocket.svg";
 
 const Nav = () => {
   const [session, loading] = useSession();
@@ -26,8 +23,9 @@ const Nav = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <img src="dog.svg" alt="doglogo" srcset="" height="24px" className="mr-3" />
           <a
-            className="navbar-brand"
+            className="navbar-brand ml-5"
             href="/"
             style={{ color: "rgb(255, 136,0)" }}
           >

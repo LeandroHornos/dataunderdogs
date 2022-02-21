@@ -18,14 +18,21 @@ export default function LandingPage() {
   return (
     <BlankLayout>
       <CenteredColRow
-        centerColSize={6}
+        centerColSize={8}
         breakpoint="md"
         centerColClasses="d-flex min80 flex-column justify-content-between align-items-center"
       >
         <div className="text-center">
+        <img src="dog.svg" alt="doglogo" srcset="" height="200px" className="mr-3" />
           <h1>Data Underdogs</h1>
         </div>
         <p>
+          <blockquote className="blockquote" style={{ fontSize: "1em" }}>
+            "Aquí están los locos. Los inadaptados. Los rebeldes. Los
+            alborotadores. Las clavijas redondas en los agujeros cuadrados. Los
+            que ven las cosas de manera diferente. No les gustan las reglas y no
+            tienen respeto por el estatus quo" Steve Jobs <br />
+          </blockquote>
           <strong>
             <small style={{ color: "rgb(200,200,200)" }}>
               Este sitio es una comunidad de personas que se están iniciando en
@@ -44,11 +51,10 @@ export default function LandingPage() {
           </strong>
         </p>
 
-        <div className="d-grid gap-2 col-12 mx-auto">
+        <div className="d-grid gap-2 col-12 mx-auto mb-5">
           <button className="btn btn-dark" type="button" onClick={signIn}>
             Acceder
           </button>
-          <Link href="/protected">Ver página protegida</Link>
         </div>
       </CenteredColRow>
     </BlankLayout>
