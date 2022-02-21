@@ -9,8 +9,18 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/client";
 
+import "@uiw/react-md-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
+import dynamic from "next/dynamic";
+
+const MDEditor = dynamic(
+  () => import("@uiw/react-md-editor").then((mod) => mod.default),
+  { ssr: false }
+);
+
 const newEntry = () => {
   const [session, loading] = useSession();
+  const [value, setValue] = useState("**Hello world!!!**");
   // Si no se inició se sesión se muestra un mensaje de error
   if (typeof window !== "undefinded" && loading) {
     return null;
@@ -31,33 +41,40 @@ const newEntry = () => {
   } else {
     return (
       <GeneralLayout>
-        <CenteredColRow>
-          <div className="col-12 min80 pt-5">
-            <h1>Nueva publicación</h1>
-            <form action="">
-              <div className="form-group">
-                <label htmlFor="title">Título:</label>
-                <input
-                  type="text"
-                  name="title"
-                  id="1"
-                  className="form-control"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="title">Pitch:</label>
-                <textarea className="form-control"></textarea>
-              </div>
-              <div className="form-group">
-                <label htmlFor="title">Texto:</label>
-                <textarea className="form-control"></textarea>
-              </div>
-              <div className="form-group">
-                <input className="btn btn-info mt-3" type="submit" value="Enviar" />
-              </div>
-            </form>
+        <div className="row">
+          <div className="col-md-3 bg-dark"></div>
+          <div className="col-md-9">
+            {" "}
+            <div className="min80 pt-5">
+              <h1>Nueva publicación</h1>
+              <form action="">
+                <div className="form-group mt-3">
+                  <label htmlFor="title">Título:</label>
+                  <input
+                    type="text"
+                    name="title"
+                    id="1"
+                    className="form-control"
+                  />
+                </div>
+                <div className="form-group mt-3">
+                  <label htmlFor="title">Pitch:</label>
+                  <textarea className="form-control"></textarea>
+                </div>
+                <div className="mt-3">
+                  <MDEditor value={value} onChange={setValue} />
+                </div>
+                <div className="form-group">
+                  <input
+                    className="btn btn-info mt-3"
+                    type="submit"
+                    value="Enviar"
+                  />
+                </div>
+              </form>
+            </div>
           </div>
-        </CenteredColRow>
+        </div>
       </GeneralLayout>
     );
   }
