@@ -1,7 +1,7 @@
 /* This component shows a list of cards containg basic info about 
 a post a user has made*/
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 
 import { ArrowRight } from "react-bootstrap-icons";
 import { ArrowLeft } from "react-bootstrap-icons";
@@ -9,15 +9,22 @@ import { ArrowLeft } from "react-bootstrap-icons";
 const EntriesList = ({ entries }) => {
   const [firstEntry, setFirstEntry] = useState(0);
   const [lastEntry, setLastEntry] = useState(10);
+  const [loading, setLoading] = useState(false);
 
   return (
     <div className="row width100">
       <div className="col-12">
-        <EntriesNavButtons firstEntry={firstEntry} lastEntry={lastEntry} />
-        {entries.map((entry) => {
-          return <EntryListCard entry={entry} />;
-        })}
-        <EntriesNavButtons firstEntry={firstEntry} lastEntry={lastEntry} />
+        {loading ? (
+          <p className="text-center">Cargando...</p>
+        ) : (
+          <Fragment>
+            <EntriesNavButtons firstEntry={firstEntry} lastEntry={lastEntry} />
+            {entries.map((entry) => {
+              return <EntryListCard entry={entry} />;
+            })}
+            <EntriesNavButtons firstEntry={firstEntry} lastEntry={lastEntry} />
+          </Fragment>
+        )}
       </div>
     </div>
   );
@@ -50,7 +57,8 @@ export const EntryListCard = ({ entry }) => {
           <span>
             <strong> Usuario: </strong>
           </span>
-          {username}{" - "}
+          {username}
+          {" - "}
           <span>
             <strong>Categoría: </strong>
           </span>{" "}

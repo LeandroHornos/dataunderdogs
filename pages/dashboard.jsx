@@ -10,6 +10,7 @@ import EntriesList from "../components/EntriesList";
 const sample_data = require("../sampledb/user-posts.json");
 
 import { GeneralLayout, CenteredColRow } from "../components/Layout";
+
 export default function Dashboard() {
   return (
     <GeneralLayout>
@@ -25,7 +26,7 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="col-md-9 pt-5">
-          <div className="min80 d-flex flex-column justify-content-between align-items-center">
+          <div className="min80 d-flex flex-column justify-content-start align-items-center">
             <h1 className="text-center">Últimas entradas</h1>
             <EntriesList entries={sample_data.splice(0, 10)} />
           </div>
