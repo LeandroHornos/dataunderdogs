@@ -4,7 +4,7 @@ import { signIn } from "next-auth/client";
 
 const NavNotLogged = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div className="container-fluid">
         <button
           className="navbar-toggler"

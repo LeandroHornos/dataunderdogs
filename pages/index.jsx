@@ -23,7 +23,7 @@ const newlanding = () => {
         setCurrentNumber(idx + 1);
       }
     },
-    { threshold: 1, rootMargin: "32px 0px -80% 0px" }
+    { threshold: 1, rootMargin: "32px 0px -40% 0px" }
   );
 
   return (
@@ -48,10 +48,9 @@ const newlanding = () => {
                 className="blockquote"
                 style={{ fontSize: "0.8em", fontStyle: "italic" }}
               >
-                "Aquí están los locos. Los inadaptados. Los rebeldes. Los
+                "Esto va para los locos, los inadaptados, los rebeldes, los
                 alborotadores. Las clavijas redondas en los agujeros cuadrados.
-                Los que ven las cosas de manera diferente. No les gustan las
-                reglas y no tienen respeto por el estatus quo"
+                Los que ven las cosas de manera diferente."
                 <br />
                 <br />
                 Steve Jobs
@@ -87,7 +86,7 @@ const newlanding = () => {
           <div className="col-md-4">
             <div
               className="sticky-visual text-center"
-              style={{ backgroundColor: "red" }}
+              style={{ backgroundColor: "red", minHeight:"80vh" }}
             >
               <h1>{currentNumber}</h1>
             </div>

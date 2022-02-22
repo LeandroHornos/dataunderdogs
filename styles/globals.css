@@ -113,7 +113,7 @@ body {
 .sticky-visual {
   flex: none;
   position: sticky;
-  top: 64px;
+  top: 100px;
   margin-left: 0;
   margin-top: 0;
 }
