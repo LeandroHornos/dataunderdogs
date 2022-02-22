@@ -107,3 +107,26 @@ body {
 .card {
   margin-bottom: 20px;
 }
+
+/* SCROLLYTELLING */
+
+.sticky-visual {
+  flex: none;
+  position: sticky;
+  top: 64px;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.scroll-section {
+  min-height: 90vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .sticky-visual {
+    display: none;
+  }
+  .scroll-section {
+    min-height: 0vh;
+  }
+}
